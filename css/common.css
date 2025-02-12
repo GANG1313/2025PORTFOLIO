@@ -352,7 +352,8 @@ input:focus {
 .change-word {
     display: inline-block;
     transition: opacity 0.5s ease;
-    font-size: 40px; 
+    font-size: 40px;
+    margin-left: 10px;
 }
 
 .text {
@@ -1061,7 +1062,7 @@ input:focus {
 /* contact */
 .sec-contact {
     position: relative;
-    padding: 10em 30px 60px;
+    padding: 15em 30px 20px;
     background: #000;
     box-sizing: border-box;
     color: #222;
@@ -1118,6 +1119,84 @@ input:focus {
     color: #fff;
 }
 
+.group-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1440px) {
+    .visual__video video {
+        height: auto;
+    }
+}
+@media (max-width: 768px) {
+    .sec-intro,
+    .sec-intro .section_inner {
+        height: auto;
+    }
+    .header h1 a {
+        font-size: 20px;
+    }
+
+    .header #gnbToggle::before, .header #gnbToggle::after {
+        width: 25px;
+    }
+
+    .header #gnbToggle {
+        width: 20px;
+    }
+
+    .gnb-wrapper .area-2 .nav {
+        font-size: 40px;
+    }
+
+    .sec-about {
+        padding: 2em 1.6rem;
+    }
+
+    .sec-about .about-banner span {
+        width: 275px;
+        font-size: 50px;
+    }
+
+    .sec-about .section_txt {
+        padding: 0;
+    }
+
+    .sec-about .section_txt p .char {
+        font-size: 1.3em;
+    }
+
+    .sec-works {
+        height: auto;
+        padding: 2em 0;
+    }
+
+    .works_tit h3 {
+        font-size: 50px;
+    }
+
+    .sec-works .works_contWrap .list-projects .project .link h2 {
+        font-size: 35px;
+    }
+
+    .sec-works .txt-box .desc,
+    .peque,
+    .sec-works .btn-box .view_btn  {
+        font-size: 16px;
+    }
+
+    .sec-works .txt-box .keyword span {
+        font-size: 13px;
+    }
+
+    .sec-works .btn-box {
+        margin-right: 0;
+    }
+    
+    
+}
 
 
 
