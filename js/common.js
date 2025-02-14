@@ -76,17 +76,25 @@ $(function(){
     const hoverTargets = document.querySelectorAll('.hover-target');
     let scrollPosition = 0;
 
-    // 커서 움직임
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.top = `${e.clientY}px`;
-        cursor.style.left = `${e.clientX}px`;
-    });
+    // 디바이스가 터치 지원 여부 확인
+    const isTouchDevice = window.matchMedia('(max-width: 1024px)').matches;
 
-    // 커서 hover 효과
-    hoverTargets.forEach((target) => {
-        target.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-        target.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-    });
+    if (!isTouchDevice) {
+        // 커서 움직임
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.top = `${e.clientY}px`;
+            cursor.style.left = `${e.clientX}px`;
+        });
+
+        // 커서 hover 효과
+        hoverTargets.forEach((target) => {
+            target.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            target.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+    } else {
+        cursor.style.display = 'none'; // 모바일에서는 커서 숨기기
+    }
+
     
 
     // gnb 
@@ -201,49 +209,13 @@ gsap.from(".works_tit h3", {
     scrollTrigger: {
         trigger: ".works_tit", 
         start: "top 80%", 
-        end: "top 40%",
+        end: "top 30%",
         scrub: 1,
     }
     
 });
 
-gsap.registerPlugin(ScrollTrigger);
 
-gsap.utils.toArray(".project").forEach((project, index) => {
-    let anim = gsap.from(project, {
-        y: 120, 
-        autoAlpha: 0, 
-        scale: 0.9, 
-        duration: 1.5, 
-        ease: "back.out(1.7)", 
-        delay: index * 0.3,
-        scrollTrigger: {
-            trigger: project,
-            start: "top 90%", 
-            end: "top 40%",
-            scrub: true,
-            toggleActions: "play none none none", 
-        }
-    });
-
-    project.addEventListener("mouseenter", () => {
-        anim.pause();
-        gsap.to(project, { y: -85, duration: 0.1, ease: "power4.out" });
-    });
-
-    project.addEventListener("mouseleave", () => {
-        gsap.to(project, { y: 0, duration: 0.1, ease: "power4.out", onComplete: () => anim.resume() });
-    });
-});
-
-const timeline = gsap.timeline({
-    scrollTrigger: {
-        trigger: '#sample',
-        start: '30% center', 
-        end: '101% bottom',  
-        scrub: 1,            
-    }
-});
 
 gsap.registerPlugin(ScrollTrigger);
 
