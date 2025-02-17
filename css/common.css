@@ -451,21 +451,22 @@ input:focus {
 .gnb-wrapper > div{
     position: relative;
     width: 100%;
-    color: rgba(255,255,255,0.4);
+    overflow: visible;
 }
 .gnb-wrapper > div::before{
     display: block;
     position: absolute;
     z-index: -1;
-    top: 0;left: 0;
-    background: rgba(0,0,0,0.9);
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(10px);
     width: 100%;
     height: 100%;
     content: '';
 }
 .gnb-wrapper > div+div::before{
-    border-left: 1px solid rgba(255,255,255,0.2)
+    border-left: 1px solid rgba(255,255,255,0.2);
 }
 /* 메뉴 영역 각 섹션 */
 .gnb-wrapper .area-1{
@@ -1111,23 +1112,23 @@ input:focus {
     display: flex;
     align-items: center;
     overflow: hidden;
-    border-top: 1px solid #636363;
+    border-top: 1px solid #242424;
     padding-top: 20px;
 }
 
 .contact-banner-wrap .contact-banner {
     display: flex;
-    gap: 50px;
+    gap: 20px;
     width: max-content;
 }
 
 .contact-banner-wrap .contact-banner li {
-    color: #858585;
+    color: #454545;
     padding: 0;
     margin: 0;
     font-size: 30px;
     line-height: 1.5em;
-    font-weight: 400;
+    font-weight: 800;
     white-space: nowrap;
     letter-spacing: -0.05em;
 }
@@ -1137,23 +1138,19 @@ input:focus {
 }
 
 .group-row {
-    padding: 0 30px;
+    padding: 0 30px !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
-.copyright span,
-.copyright-symbol,
-.social-area a {
-    color: #636363;
-    font-size: 19px;
-    font-weight: 400;
-}
-
-.social-area a:hover {
-    color: #fff;
+.group-row a {
     text-decoration: underline;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.group-row a:hover {
+    color: #fff;
 }
 
 .social-area {
@@ -1469,16 +1466,27 @@ input:focus {
         padding: 0 15px;
     }
 
-    .group-row .copyright {
-        order: 2;
-    }
-
     .header #gnbToggle {
         width: 0px;
     }
 
     .header #gnbToggle::before, .header #gnbToggle::after {
         width: 20px;
+    }
+
+    .gnb-wrapper .area-2 .nav span {
+        font-size: 30px;
+    }
+
+    .group-row {
+        display: block;
+    }
+    
+    .group-row li {
+        margin-top: 10px;
+    }
+    .group-row a {
+        font-size: 14px;
     }
 }
 
